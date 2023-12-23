@@ -6,17 +6,14 @@ manifest:
     west-commands: scripts/west-commands.yml
 
   remotes:
-    - name: zephyrproject-rtos
-      url-base: https://github.com/zephyrproject-rtos
+    - name: dozack
+      url-base: https://github.com/dozack
 
   projects:
     - name: zephyr
-      remote: zephyrproject-rtos
-      revision: main
+      remote: dozack
+      revision: feature/add-ti-hercules-tms570
       import:
-        # By using name-allowlist we can clone only the modules that are
-        # strictly needed by the application.
         name-allowlist:
-          - cmsis      # required by the ARM port
-          - hal_nordic # required by the custom_plank board (Nordic based)
-          - hal_stm32  # required by the nucleo_f302r8 board (STM32 based)
+          - cmsis       # required by the ARM port
+          - hal_ti
